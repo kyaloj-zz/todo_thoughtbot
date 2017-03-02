@@ -2,6 +2,9 @@
 <%= link_to 'New todo', new_todo_path %>
 <ul class="todo">
   <% @todos.each do |todo| %>
-    <li> <%= todo.title %></li>
+    <li class="<%= 'completed' if todo.completed?%>"> 
+      <%= todo.title %>
+      <%= button_to 'Completed', todo_completion_path(todo) %>        
+    </li>
   <% end %>
 </ul>
